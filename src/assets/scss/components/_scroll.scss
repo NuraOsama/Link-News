@@ -1,0 +1,132 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+
+/* scroll */
+/* scroll to top */
+  
+  .auto-scroll-to-top {
+
+    cursor: pointer;
+    width:2.7rem;
+    height:2.7rem;
+    position: fixed;
+    bottom:3.3rem;
+    #{var.$left}:2rem;
+    font-size:1rem;
+    border:2px solid #{var.$whitecolor};
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1000;
+    transform: scale(0);
+    @extend %transition;
+
+    &,
+    &.non-hover{
+  
+      background-color:var.$bluecolor;
+      color:var.$whitecolor !important;
+      box-shadow: 0 0 0.5rem rgba($color:var.$dgraycolor, $alpha:0.8);
+
+    }
+    &:hover{
+    
+      background-color: var.$lightbluecolor;
+      box-shadow: 0 0 1rem rgba($color:var.$dgraycolor, $alpha:0.8);
+ 
+     }
+
+     &.visible {
+    
+        transform: scale(1);
+
+         
+      }
+ }
+   
+/* //scroll to top */
+
+/* scroll design */
+/* Chrome && Edge && Safari */
+
+body::-webkit-scrollbar,
+.side-navbar::-webkit-scrollbar,
+select::-webkit-scrollbar{
+
+    width:0.43rem !important;
+ 
+ }
+ body::-webkit-scrollbar-track,
+ .side-navbar::-webkit-scrollbar-track,
+ select::-webkit-scrollbar-track{
+ 
+    
+    background-color:var.$whitecolor;
+    border-radius:1.25rem !important;
+    box-shadow:transparent;
+ 
+ }
+ body::-webkit-scrollbar-thumb,
+ .side-navbar::-webkit-scrollbar-thumb,
+ select::-webkit-scrollbar-thumb{
+ 
+    
+     border-radius:0.7rem !important;
+     @extend %transition;
+
+ }
+ body::-webkit-scrollbar-thumb,
+ .side-navbar::-webkit-scrollbar-thumb{
+
+ background-color:var.$lightbluecolor !important;
+ 
+}
+ body::-webkit-scrollbar-thumb:hover{
+ 
+    background-color:var.$bluecolor !important;
+ 
+ }
+ .side-navbar::-webkit-scrollbar-thumb:hover{
+
+    background-color:var.$lllightbluecolor !important;
+
+ }
+ select::-webkit-scrollbar-thumb{
+
+    
+    background-color:var.$graycolor !important;
+ }
+ select::-webkit-scrollbar-thumb:hover{
+
+    background-color:var.$lightgraycolor !important;
+    
+ }
+ /* //Chrome && Edge && Safari */
+ 
+ /* firefox */
+ 
+ :root,
+ .side-navbar{
+   
+     scrollbar-color: var.$lightbluecolor var.$whitecolor;
+     scrollbar-width: thin !important;
+    
+   }
+
+   select{
+   
+    scrollbar-color: var.$graycolor var.$whitecolor;
+    scrollbar-width: thin !important;
+   
+  }
+
+
+
+ /* //firefox */
+ 
+ /* //scroll design */
+ /* //scroll */

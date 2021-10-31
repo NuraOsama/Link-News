@@ -1,0 +1,19 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+@use '../layouts/global';
+
+
+/* alert */
+.alert{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        margin-bottom: 0;
+        
+    }
+}
+/* //alert */

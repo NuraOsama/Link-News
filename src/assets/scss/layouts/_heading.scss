@@ -1,0 +1,49 @@
+
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+/* heading */
+.head{
+
+    h3{
+
+        font-size:2.1rem;
+        @extend %fontweight-bold;
+
+    }
+}
+.sub-head{
+
+    p{
+
+        font-size: 1.4rem;
+    }
+}
+.link{
+
+    a{
+
+        font-size:1.1rem;
+        color:var.$lightbluecolor;
+
+        &::after{
+
+            @extend %arrow-icon;
+        }
+
+        &:hover::after{
+        
+            @extend %hoverd-arrow-icon;
+    
+    }
+
+
+    }
+}
+/* //heading */
+
+
+
+
+ 

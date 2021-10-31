@@ -1,0 +1,399 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+@use '../layouts/global';
+
+   
+   /* news  */
+    .col-lg-4{
+
+        margin-bottom:2rem;
+
+    }
+    .card{
+
+       
+        @extend  %border-radius;
+        border:unset !important;
+        @extend %transition;
+
+        
+        .image{
+            
+            display: block;
+            overflow: hidden;
+            @extend %border-radius-t;
+           
+    
+          img{
+    
+              width:100%;
+              transform:rotate(0) scale(1);
+              object-fit: cover;
+              object-position: center;
+              @extend %border-radius-t;
+              @extend %transition-big;
+    
+           }
+    
+           &:hover{
+    
+              img{
+    
+                  transform:rotate(0.5deg) scale(1.1);
+              }
+           }
+    
+         }
+    
+        .card-body{
+    
+            @extend %prelative;
+            padding:1rem;
+    
+            .icons{
+    
+                @extend %prelative;
+                margin-bottom:0.3rem;
+    
+                a{
+    
+                    display:block;
+                    color:var.$lightbluecolor;
+                    font-size:1.2rem;
+                    margin-inline-start:1rem;
+                    @extend %transition;
+    
+                    &:hover{
+    
+                        color:var.$bluecolor;
+                        transform: scale(1);
+                        animation: scable 2.5s linear infinite;
+        
+                    }
+        
+    
+                }
+                .overlay{
+    
+                    position:absolute;
+                    opacity:0;
+                    visibility: collapse;
+                    @extend %transition;
+    
+                }
+                .overlay:not(.social-media){
+    
+                    top:0;
+                }
+                .social-media{
+    
+                    top:100%;
+                    #{var.$right}:0;
+                    
+                    ul{
+    
+                        @extend  %border-radius;
+    
+                        li{
+    
+                            a{
+    
+                                text-align:center;
+                                margin:0 auto;
+                                padding: 0.1rem 0.9rem;
+                                color:var.$whitecolor;
+    
+                            }
+    
+                            &:nth-child(1){
+    
+                                background-color:var.$facebookcolor;
+                                border-top-#{var.$left}-radius:0.3rem;
+                                border-bottom-#{var.$left}-radius:0.3rem;
+    
+                            }
+                            &:nth-child(2){
+                                
+                                background-color:var.$twittercolor;
+    
+                            }
+                            &:nth-child(3){
+                                
+                                background-color:var.$messagecolor;
+                                border-top-#{var.$right}-radius:0.3rem;
+                                border-bottom-#{var.$right}-radius:0.3rem;
+    
+                            }
+    
+                        }
+                         
+                    }
+                }
+    
+                .favorite.toggle-icon .overlay{
+    
+                @extend    %news-icons;
+                }
+                .share.toggle-icon .overlay{
+    
+                    @extend %news-icons;
+                       
+    
+                }
+               
+            }  
+            
+            h4{
+    
+                font-size:1.3rem;
+                @extend %fontweight-bold;
+                a{
+
+
+                    color:var.$blackcolor;
+                    @extend %transition;
+
+
+
+                }
+    
+                &:hover{
+                  a{
+                       color:var.$bluecolor;
+                   }
+                }
+    
+            }
+            .badget{
+    
+                .badge.bg-secondary{
+     
+                    font-size:0.95rem;
+                    padding:0.4rem 1.2rem;
+                    margin:0.5rem 0;
+                    background-color: rgba($color: var.$darkgraycolor, $alpha:0.20) !important;
+                    border-radius:0.5rem;
+                    color:var.$lightblackcolor;
+                    @extend  %fontweight-regular;
+    
+    
+                }
+            }
+            p{
+    
+                font-size:0.95rem;
+    
+            }
+            .date{
+    
+    
+                span{
+    
+                    margin-inline-end:0.5rem;
+    
+                }
+                svg{
+    
+                    fill:var.$lightbluecolor;
+                    @extend %transition;
+    
+                }
+                span.text{
+                    
+                    font-size:0.8rem;
+                    @extend  %fontweight-bold;
+                    color:var.$darkddgraycolor;
+                    @extend %transition;
+    
+                }
+                &:hover{
+    
+    
+                    svg{
+    
+                        fill:var.$bluecolor;
+    
+                    }
+    
+                    span.text{
+    
+                        color:var.$lightbluecolor;
+                    }
+                }
+            }
+        }
+    
+       
+    }
+    .main-card{
+
+        box-shadow: 0 0.18rem 0.37rem rgba($color: var.$blackcolor, $alpha: 0.16);
+        &:hover{
+
+            box-shadow: 0 0.5rem 0.25rem rgba($color: var.$blackcolor, $alpha: 0.16);
+
+        }
+
+        .image{
+    
+          img{
+    
+              height:200px;
+              
+            
+           }
+        }
+        .card-body{
+
+
+        .date{
+    
+            position: absolute;
+            bottom: 0;
+            #{var.$left}: 0;
+            padding:1rem;
+        }
+    }
+
+    }
+    .sub-card{
+
+
+        .image{
+    
+            img{
+      
+                height:80vh;
+                
+              
+             }
+          }
+      .card-body{
+
+         .badget{
+
+            margin:0.5rem 0;
+
+            span{
+
+                color:var.$darkdddgraycolor;
+
+            }
+
+
+        }
+        .date{
+
+            svg{
+
+                fill:var.$bluecolor;
+            }
+            &:hover{
+    
+    
+                svg{
+
+                    fill:var.$lightbluecolor;
+
+                }
+
+                span.text{
+
+                    color:var.$bluecolor;
+                }
+            }
+            
+        }
+      }
+    }
+    .filter{
+
+    
+        .form-select{
+            
+            background-image: url('~@/assets/images/arrow-icon-select.png');
+            background-size:10px;
+            @extend %select-control;
+
+            &:hover,
+            &:active,
+            &:focus {
+                
+              @extend  %select-control-hovered;
+                box-shadow:unset;
+
+            }
+
+            &.date-select{
+
+                background-color:var.$lllightgratcolor;
+                background-image: url('~@/assets/images/date-icon-select.png');
+                background-size:17px;
+
+            }
+
+            &::placeholder{
+
+                color:var.$darkdddgraycolor;
+            }
+
+        }
+        .form-control{
+
+            @extend %select-control;
+            border-inline-end: unset;
+            &:hover,
+            &:active,
+            &:focus {
+                
+              @extend  %select-control-hovered;
+            }
+
+        }
+        .input-group-text{
+
+            background-color:var.$lightbluecolor;
+            border-color:rgba($color: var.$dddgraycolor, $alpha: 0.6);
+            border-radius:0.3rem;
+
+        }
+        .col-lg-1{
+
+            padding-#{var.$left}: 0;
+            padding-#{var.$right}: 0;
+         }
+        .sort{
+
+            margin-bottom: 1.7rem;
+            a{
+
+            color:var.$lightbluecolor;
+            @extend %fontweight-bold;
+            @extend %transition;
+
+            .icon{
+
+                margin-inline-start: 0.7rem;
+            }
+
+            path{
+
+                @extend %transition;
+            }
+
+            &:hover{
+
+                color:var.$bluecolor;
+                path{
+
+                    fill:var.$bluecolor !important;
+                }
+            }
+
+            }
+        }
+
+
+    }
+    /* //news  */

@@ -1,0 +1,114 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+/* footer */
+
+footer{
+
+    padding-top:2.5rem;
+    background-color: var.$graycolor;
+    text-align: var.$left;
+    .col-md-6:last-child{
+
+        margin-#{var.$left}:auto;
+    }
+    ul{
+
+        li{
+            a{
+                display:flex;
+                width: max-content;
+                font-size:1.1rem;
+                color:var.$darkdddgraycolor;
+                padding-top:0.4rem;
+                transform:translateY(0);
+                @extend %transition;
+
+             &:hover{
+
+
+                color:var.$bluecolor;
+                transform:translateY(-2px);
+
+
+             }  
+            }
+        }
+    }
+    ul:not(.d-flex){
+
+        li{
+
+            a{
+                font-size:0.9rem;
+
+            }
+        }
+    }
+    ul.d-flex{
+
+        li{
+
+            a{
+
+                margin-top: 0.3rem;
+                padding-inline-end:1.5rem;
+            }
+        }
+    }
+    .text{
+
+        h5{
+
+            color:var.$darkdddgraycolor;
+            font-size:0.9rem;
+            margin-bottom:0.7rem;
+        }
+    }
+    form {
+        .form-control{
+
+            background-color: var.$lightgraycolor;
+            border-color:var.$lightgraycolor;
+            @extend %border-radius;
+
+        }
+        .form-control::placeholder{
+
+            color: rgba($color: var.$blackcolor, $alpha: 0.50);
+        }
+        .btn{
+
+            font-size:0.9rem;
+            padding:0.75rem 2rem;
+            margin: 0 auto;
+            @extend %border-radius;
+            
+        }
+    }
+    .copy-right{
+
+        margin-top:1.5rem;
+        padding: 0.6rem 0;
+        background-color:var.$bluecolor;
+        p{
+
+            font-size: 0.9rem;
+
+            a{
+
+                color:var.$whitecolor;
+                @extend %transition;
+
+                &:hover{
+
+                    color:var.$lightbluecolor;
+                }
+            }
+        }
+
+    }
+}
+
+/* //footer */

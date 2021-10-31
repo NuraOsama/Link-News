@@ -1,0 +1,49 @@
+/* abstracts */
+
+@use './abstracts/variables' as var;
+
+@use './abstracts/mixins';
+
+@use './abstracts/placeholders';
+
+
+/* //abstracts */
+
+/* components */
+
+@use './components/buttons';
+
+@use './components/breadcrumb';
+
+@use './components/alerts';
+
+@use './components/pagination';
+
+@use './components/scroll';
+
+
+/* //components */
+
+/* layouts && pages */
+
+@use './layouts/header';
+
+@use  './layouts/heading';
+
+@use './layouts/global';
+
+@use './pages/home';
+
+@use './pages/news';
+
+@use  './layouts/footer';
+
+@use  './layouts/responsive';
+
+
+/* //layouts && pages */
+
+
+
+
+

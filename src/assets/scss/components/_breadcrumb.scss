@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+
+/* breadcrumb */
+
+.breadcrumb{
+
+    .breadcrumb-item{
+        a{
+
+            color:var.$bluecolor;
+            @extend %fontweight-regular;
+            @extend %transition;
+
+        }
+        
+        &.active{
+
+            a{
+                color:var.$dddgraycolor;
+                cursor: unset !important;
+
+            }
+        }
+        &:not(.active):hover{
+            a{
+
+                @extend %fontweight-bold;
+            }
+        }
+    }
+    .breadcrumb-item+.breadcrumb-item {
+
+        padding-#{var.$left}:0.7rem;
+        
+    }
+    .breadcrumb-item+.breadcrumb-item::before {
+
+        float: #{var.$left};
+        padding-#{var.$right}:0.7rem;
+        color: var.$dddgraycolor;
+        font-family: "FontAwesome";
+        font-weight: 900; 
+        content: "\f105";
+
+    }
+
+    
+}
+
+/* //breadcrumb */

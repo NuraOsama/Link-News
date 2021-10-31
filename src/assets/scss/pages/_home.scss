@@ -1,0 +1,280 @@
+
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+@use '../layouts/global';
+
+
+/* hero */
+
+.hero-sec{
+
+    .carousel{
+
+      height: 75vh;
+
+      .carousel-item {
+       
+        position: relative;
+
+        .image{
+
+            @extend  %prelative;
+            width: 100%;
+            height: 75vh;
+            animation:6s 0.8s scable-fade ease-in-out infinite;
+
+
+            &::before{
+            
+              content:" ";  
+              position: absolute;
+              top:0;
+              bottom:0;
+              #{var.$left}:0;
+              #{var.$right}:0;
+              display: block;
+              @extend %w-h;
+              background:rgba($color: var.$dddddgarycolor, $alpha: 0.55);            
+
+            }
+
+            img{
+
+                object-fit: cover;
+                object-position: top;
+                @extend  %w-h;
+
+            }
+                 
+        }
+
+        .carousel-caption {
+
+            bottom:0;
+            #{var.$right}:0;
+            #{var.$left}:0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height:100%;
+            z-index: 1;
+           
+               
+            h5{
+
+                 font-size:3rem;
+                 @extend %fontweight-bold; 
+                 margin-bottom: 1rem; 
+                 animation: 1s .1s fadeInUp both;
+                 @include mixins.prefixermixin(transition,all 0.3s ease-in-out,webkit moz o ms)
+
+          
+
+            }
+
+            p{
+
+                width:50%;
+                font-size:1.55rem;
+                line-height:1.5;
+                color:var.$whitecolor;
+                margin:0 auto 1.5rem;
+                animation: 1s .1s fadeInDown both;
+                @include mixins.prefixermixin(transition,all 0.5s ease-in-out,webkit moz o ms)
+
+
+            }
+            a{
+
+                animation: 1s .1s zoomIn both;
+
+
+            }
+           
+        
+        }
+
+        @for $i from 0 through 3{
+            
+            &:nth-child(#{2*$i}){
+                h5{
+                    animation: 1s .1s fadeInDown both;  
+  
+
+                }
+                p{
+
+                    animation: 1s .1s zoomIn both;
+
+
+                }
+                a{
+
+                    animation: 1s .1s fadeInUp both;
+
+
+    
+                }
+    
+            }
+        }
+
+
+   
+       }
+
+    .carousel-control-next{
+
+       @extend %opacity;
+
+    }
+    .carousel-control-prev{
+
+
+     @extend  %opacity;
+
+    }
+
+    .carousel-control-next-icon{
+
+        @extend   %carousel-nav-icon
+
+    }
+    .carousel-control-prev-icon {
+
+     @extend    %carousel-nav-icon
+
+    }
+    
+    .carousel-control-next-icon:hover,
+    .carousel-control-next-icon:focus, 
+    .carousel-control-prev-icon:hover, 
+    .carousel-control-prev-icon:focus{
+
+        color:var.$whitecolor;
+        background-color: rgba($color: var.$lllightgratcolor, $alpha: 0.6);
+        border-color:var.$lightbluecolor;
+        opacity:1;
+
+    }
+
+    .carousel-indicators [data-bs-target] {
+       
+        width: 0.7rem;
+        height: 0.7rem;
+        background-color:var.$lllightgratcolor;
+        border-radius: 50%;
+        transform:scale(1) translateY(0);
+        @extend %transition;
+
+
+    }
+
+    .carousel-indicators [data-bs-target].active {
+
+        transform:scale(1.23) translateY(-2px);
+
+
+
+    }
+    
+    
+   }
+}
+
+/* //hero */
+
+/* help */
+
+.help-sec{
+
+    background:url("~@/assets/images/help-img.png") fixed;
+    @include mixins.backgroundmixin(cover,center,no-repeat);
+    padding:6rem 0 7rem;
+    @extend %prelative;
+
+    &:before{
+
+        content:" ";
+        position: absolute;
+        top:0;
+        bottom:0;
+        #{var.$left}:0;
+        @extend %w-h;
+        background-color:rgba($color: var.$llightblackcolor, $alpha: 0.53);
+        z-index: -1;
+
+    }
+    .row.g-2{
+
+        margin-top:8rem;
+    }
+    .col-lg-3{
+
+        margin: 0;
+    }
+    .content{
+
+       @extend %prelative;
+       height: 100%;
+       margin-top:-2.5rem;
+       
+
+          &::before{
+
+            content: "";
+            position: absolute;
+            display: block;
+            margin: 0 auto;
+            top: 0;
+            bottom: 0;
+            #{var.$left}: 0;
+            #{var.$right}: 0;
+            width: 160px;
+            height: 160px;
+            background-color:transparent;
+            border: 3px solid var.$whitecolor;
+            transform: rotate(45deg);
+            z-index: -1;
+            @extend  %transition;
+
+
+          }
+
+          &:hover::before{
+
+            background-color:var.$lightbluecolor;
+            border-color:var.$lightbluecolor;
+          }
+
+        .icon{
+            
+            margin:1rem 0; 
+
+          img{
+
+            width:3rem;
+
+          }
+
+        
+        } 
+        
+
+        a{
+            display:block;
+            color:var.$whitecolor;
+
+          }
+    }
+
+
+
+}
+
+/* //help */
+
+
+

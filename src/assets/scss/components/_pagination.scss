@@ -1,0 +1,61 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+@use '../layouts/global';
+
+
+/* pagination */
+
+.pagination{
+
+
+        .page-item{
+
+            .page-link{
+
+                color:var.$blackcolor;
+                background-color:var.$whitecolor;
+                border-color:var.$llightgraycolor;
+                border-radius: 0.3rem !important;
+                margin-inline-end: 1rem;
+                padding: 0.4rem 0.85rem;
+                @extend %transition;
+
+            }
+
+            &:first-child,
+            &:last-child{
+                
+                .page-link {
+                
+                  color:var.$lightbluecolor;
+
+               }
+            }
+
+            &:not(.disabled):hover,
+            &.active{
+
+                .page-link{
+
+                    background-color:var.$lightbluecolor;
+                    border-color:var.$lightbluecolor;
+                    color:var.$whitecolor;
+
+
+                }
+            }
+
+            &.disabled{
+             
+                .page-link{
+
+                    background-color:var.$lllightgratcolor;
+                    color:var.$dddgraycolor;
+                }
+
+            }
+        }
+}
+
+/* //pagination */

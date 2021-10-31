@@ -1,0 +1,264 @@
+
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo');
+
+/*@font-face{
+
+   font-family:Open Sans;
+   src:url(/src/assets/fonts/OpenSans-Regular.ttf), format("ttf");
+
+  }*/
+ /* @font-face{
+
+    font-family:Cairo;
+    src:url(/src/assets/fonts/Cairo-Regular.ttf), format("ttf");
+
+  }*/
+
+  /* animation */
+
+  @include mixins.keyframemixin(scable){
+
+    0%{
+
+        transform: scale(1);
+     }
+
+    50%{
+
+        transform: scale(1.1);
+    }
+    100%{
+
+        transform: scale(1);
+
+    }
+
+   }
+  @include mixins.keyframemixin(scable-fade){
+
+    from{
+
+        opacity: 1;
+        transform: scale(1);
+     }
+
+    to{
+
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+
+   }
+   @include mixins.keyframemixin(fade){
+
+    0%{
+
+        opacity: 1;
+      
+     }
+
+    50%{
+
+        opacity: 0.8;
+    }
+
+    100%{
+
+        opacity: 1;
+    }
+
+   }
+/* //animation */
+
+  body{
+
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-family:'Open Sans', sans-serif;
+    color:var.$blackcolor;
+    font-size:1rem;
+    background-color:var.$lightlightgraycolor;
+    width: 100%;
+    height: 100%;
+    line-height: 1.42857143;
+    padding-#{var.$right}:0 !important;
+    overflow: hidden;
+    
+  }
+
+   
+   .body-content-wrapper {
+    
+    overflow: hidden;
+    min-height:100vh;
+    text-align: center;
+    margin:0 auto;
+   }
+
+ 
+  
+   ul {
+    
+     padding: 0;
+     margin: 0;
+     list-style: none;
+   }
+   img {
+     width:auto;
+     height:auto;
+   }
+   
+   a {
+     text-decoration: none !important;
+     cursor: pointer !important;
+   
+   }
+   
+   a.d-flex{
+   
+      align-items: center;
+   
+   }
+   a,button{
+   
+     outline: none;
+     box-shadow: none;
+   }
+   button:focus{
+   
+   outline: none !important;
+   
+   }
+   .inline{
+   
+      display:inline-block; 
+   }
+   .line-2{
+   
+    float:var.$right;
+   }
+
+
+   h4{
+   
+     font-size:1.3rem;
+     line-height: 30px;
+
+   }
+   p{
+   
+     font-size:1rem;
+     color:var.$darkdddgraycolor;
+     line-height:1.6rem;
+    
+
+  }
+  .form-control{
+
+    font-size:0.9rem;
+    outline: unset !important;
+    box-shadow: unset !important;
+    @extend %transition;
+
+    &::placeholder{
+
+        font-size:0.9rem;
+
+    }
+
+  }
+
+  .sec{
+
+    padding:2.5rem 0;
+  }
+
+  .bg-white{
+
+    background-color:var.$whitecolor;
+
+  }
+
+  .main-page{
+
+    @extend %w-h;
+    
+  }
+
+  /* preloader */
+
+  .preloader {
+
+    position: fixed;
+    top: 0;
+    #{var.$right}: 0;
+    #{var.$left}: 0;
+    bottom: 0;
+    background-color:var.$bluecolor;
+    z-index: 10000000;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+
+    .preloader-status {
+  
+      position: absolute;
+      #{var.$right}: 0;
+      #{var.$left}: 0;
+      top: 30%;
+      width: 50%;
+      height: 50%;
+      display: block;
+      margin: 0 auto;
+      background-image: url("~@/assets/images/logo.png");
+      @include mixins.backgroundmixin(200px,center,no-repeat);
+      animation:fade 1.5s ease-in-out infinite;
+      z-index: 1;
+    
+      }
+    }
+   .loaded .preloader {
+  
+     transform: translateY(-100%);
+     @extend %transition;
+
+    }
+    /* //preloader */
+
+    /* tooltip */
+    .tooltip.bs-tooltip-bottom>{ 
+    
+       .tooltip-inner { 
+
+        background-color:rgba($color: var.$blackcolor, $alpha: 0.4); 
+
+            
+      }
+
+     .tooltip-arrow::before{
+
+        display:none;
+
+      }
+    }
+    /* //tooltip */
+
+     
+    
+
+
+
+
+
+
+
+  
+ 
+  

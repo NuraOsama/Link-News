@@ -1,0 +1,78 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+/* button */
+
+.btn{
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    max-width: max-content;
+    min-width: min-content;
+    margin:0.5rem auto;
+    z-index: 1;
+    color:var.$whitecolor;
+    font-size:1rem;
+    border-radius:0.3rem;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    background: transparent;
+    border:1px solid transparent;
+    z-index: 1;
+    white-space: unset;
+    box-shadow:unset;
+    outline: none;
+    padding:0.8rem 2rem;
+    overflow: hidden;
+    @extend %transition;
+
+}
+
+.btn::before {
+
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: 100%;
+    #{var.$left}: 50%;
+    border-radius: 50%;
+    background-color:transparent;
+    transform: translateX(-50%);
+    @extend %transition;
+    z-index: -1;
+
+}
+.btn:hover::before,
+.btn:active::before,
+.btn:focus::before{
+
+    top: -20%;
+
+}
+.light-blue-btn{
+
+    background-color: var.$lightbluecolor;
+}
+.light-blue-btn:hover,
+.light-blue-btn:active,
+.light-blue-btn:focus{
+
+    color: var.$lightbluecolor;
+    border-color:var.$whitecolor;
+}
+.light-blue-btn:hover::before,
+.light-blue-btn:active::before,
+.light-blue-btn:focus::before{
+
+    background-color: var.$whitecolor;
+
+}
+/* //button */
+
+
